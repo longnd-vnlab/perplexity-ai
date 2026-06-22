@@ -35,36 +35,45 @@ SEARCH_SOURCES = ["web", "scholar", "social"]
 SEARCH_LANGUAGES = ["en-US", "en-GB", "pt-BR", "es-ES", "fr-FR", "de-DE"]
 
 # Model Mappings
+# All internal codes below have been verified by live testing against
+# perplexity.ai on 2026-06-22. Only models that returned a valid response
+# are included. Models that returned INVALID_MODEL_SELECTION have been
+# removed. To add new models, verify the internal code by inspecting
+# DevTools > Network > perplexity_ask request payload on perplexity.ai.
 MODEL_MAPPINGS: Dict[str, Dict[str, str]] = {
     "auto": {None: "turbo"},
     "pro": {
         None: "pplx_pro",
         "sonar": "experimental",
-        "gpt-4.5": "gpt45",
-        "gpt-4o": "gpt4o",
-        "claude 3.7 sonnet": "claude2",
-        "gemini 2.0 flash": "gemini2flash",
-        "grok-2": "grok",
+        "gpt-5.2": "gpt52",
+        "gpt-5.4": "gpt54",
+        "gpt-5.5": "gpt55",
+        "claude-4.5-sonnet": "claude45sonnet",
+        "claude-4.5-opus": "claude45opus",
+        "claude-4.6-sonnet": "claude46sonnet",
+        "claude-4.6-opus": "claude46opus",
+        "claude-4.7-opus": "claude47opus",
+        "claude-4.8-opus": "claude48opus",
+        "gemini-3.0-pro": "gemini30pro",
+        "gemini-3.5-flash": "gemini35flash",
+        "grok-4.1": "grok41nonreasoning",
     },
     "reasoning": {
         None: "pplx_reasoning",
-        "r1": "r1",
-        "o3-mini": "o3mini",
-        "claude 3.7 sonnet": "claude37sonnetthinking",
-        "gpt5": "gpt5",
-        "gpt5_thinking": "gpt5thinking",
+        "gpt-5.2-thinking": "gpt52_thinking",
+        "claude-4.5-sonnet-thinking": "claude45sonnetthinking",
+        "claude-4.5-opus-thinking": "claude45opusthinking",
+        "claude-4.6-sonnet-thinking": "claude46sonnetthinking",
+        "claude-4.6-opus-thinking": "claude46opusthinking",
+        "claude-4.7-opus-thinking": "claude47opusthinking",
+        "claude-4.8-opus-thinking": "claude48opusthinking",
+        "gemini-3.0-pro": "gemini30pro",
+        "kimi-k2-thinking": "kimik2thinking",
+        "kimi-k2.5-thinking": "kimik25thinking",
+        "grok-4.1-reasoning": "grok41reasoning",
     },
     "deep research": {None: "pplx_alpha"},
 }
-
-# Labs Models
-LABS_MODELS = [
-    "r1-1776",
-    "sonar-pro",
-    "sonar",
-    "sonar-reasoning-pro",
-    "sonar-reasoning",
-]
 
 # HTTP Headers Template
 DEFAULT_HEADERS = {
